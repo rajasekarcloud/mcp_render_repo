@@ -7,7 +7,7 @@ import json
 import os
 import sys
 port = int(os.environ.get("PORT", 8000))
-mcp = FastMCP("Food Server",host="0.0.0.0", port=port)
+mcp = FastMCP("Food Server")
 # Adding Port and Host for Deployment
 
 @mcp.tool()
@@ -66,4 +66,4 @@ def get_random_recipe() -> str:
         return f"Error in get_random_recipe: {str(e)}"
 
 if __name__ == "__main__":
-    mcp.run(transport="streamable-http")
+    mcp.run(transport="streamable-http", host="0.0.0.0", port=port)
